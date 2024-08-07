@@ -102,8 +102,9 @@ const formatDate = (dateInput: Date | string) => {
     return new Intl.DateTimeFormat('en-US', {
         year: 'numeric',
         month: 'short',
-        day: 'numeric'
-    }).format(date);
+        day: 'numeric',
+        timeZone: 'UTC'
+    }).format(new Date(date.toUTCString()));
 };
 
 const PostList: React.FC<PostListProps> = ({posts}) => {
