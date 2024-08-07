@@ -50,8 +50,8 @@ attack-capital-assignment/
 ## Getting Started
 1. Clone the repository:
    ```bash
-   git clone https://github.com/thesaltree/personal-blog-platform
-   cd personal-blog-platform
+   git clone https://github.com/thesaltree/blog-capital
+   cd blog-capital
    ```
 
 2. Build the project:
@@ -63,6 +63,7 @@ attack-capital-assignment/
    ```bash
    make up
    ```
+   This step takes time for initialization.
 
 4. Access the applications:
    - Frontend: http://localhost:3001
