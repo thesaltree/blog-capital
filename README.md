@@ -14,9 +14,14 @@
 8. [Testing](#testing)
 9. [Continuous Integration](#continuous-integration)
 10. [Troubleshooting](#troubleshooting)
+11. [Screenshots](#screenshots)
 
 ## Introduction
-This project is a monorepo containing a full-stack blog application with a Next.js frontend, Express.js backend, and MySQL database. It demonstrates various rendering techniques and includes basic user authentication.
+This project is a monorepo containing a full-stack blog application with a Next.js frontend, Express.js backend, and MySQL database.
+
+
+![Screenshot 2024-08-08 at 0 45 25](https://github.com/user-attachments/assets/e9d054d6-3c34-43aa-a33b-349fa8d532d4)
+
 
 ## Project Structure
 The project follows a monorepo structure:
@@ -192,3 +197,18 @@ If you encounter any issues:
    make build
    make up
    ```
+
+## Screenshots
+![Screenshot 2024-08-08 at 0 45 25](https://github.com/user-attachments/assets/c7c133da-9bd6-4fba-8673-5c7596b7d971)
+
+![Screenshot 2024-08-08 at 0 46 13](https://github.com/user-attachments/assets/d82fb26a-d220-41e1-b66f-91f2d8189d63)
+
+![Screenshot 2024-08-08 at 0 46 27](https://github.com/user-attachments/assets/d2b112eb-c576-424d-86fc-f6b34b72f9f2)
+
+![Screenshot 2024-08-08 at 0 46 59](https://github.com/user-attachments/assets/8a338258-2554-4f25-a8b4-e942c2ab9e39)
+
+![Screenshot 2024-08-08 at 0 47 26](https://github.com/user-attachments/assets/f68c2cdc-e795-4793-a3a8-e7d7253bed5f)
+
+![Screenshot 2024-08-08 at 0 47 57](https://github.com/user-attachments/assets/23f2b5f9-c36d-4cae-b999-84f8edee38be)
+
+![Screenshot 2024-08-08 at 0 44 53](https://github.com/user-attachments/assets/aa6d58e7-9f08-42ca-8d47-14ff38236103)
