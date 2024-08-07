@@ -1,0 +1,25 @@
+name: Frontend Tests
+on:
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - "applications/frontend/**"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22.x"
+      - name: Set working directory
+        run: cd applications/frontend
+      - run: npm install
+      - run: npm run lint
+      - run: npm run test

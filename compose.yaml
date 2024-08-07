@@ -1,0 +1,75 @@
+services:
+  backend:
+    build:
+      context: ./applications/backend
+      dockerfile: Dockerfile
+      target: ${NODE_ENV:-development}
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=${NODE_ENV:-development}
+      - DATABASE_HOST=db
+      - DATABASE_PORT=3306
+      - DATABASE_USER=user
+      - DATABASE_PASSWORD=password
+      - DATABASE_NAME=main_db
+      - JWT_SECRET=4e9ecc104fbd4e82e18bf8aafd29fc456fdcdf878a4ffdc31d20ea1ad86c02c0
+    volumes:
+      - ./applications/backend:/app
+      - /app/node_modules
+    command: npm run ${NODE_ENV:-dev}
+    depends_on:
+      - db
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3000 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  frontend:
+    build:
+      context: ./applications/frontend
+      dockerfile: Dockerfile
+      target: ${NODE_ENV:-development}
+    ports:
+      - "3001:3000"
+    environment:
+      - NODE_ENV=${NODE_ENV:-development}
+      - BACKEND_URL=http://backend:3000
+      - NEXT_PUBLIC_BACKEND_URL=http://localhost:3000
+    volumes:
+      - ./applications/frontend:/app
+      - /app/node_modules
+    command: npm run ${NODE_ENV:-dev}
+    depends_on:
+      - backend
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3001 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  db:
+    image: mysql:9.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=root_password
+      - MYSQL_DATABASE=main_db
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./applications/db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+volumes:
+  mysql_data:
+
+networks:
+  default:
+    name: test_network
