@@ -27,7 +27,7 @@ This project is a monorepo containing a full-stack blog application with a Next.
 The project follows a monorepo structure:
 
 ```
-attack-capital-assignment/
+blog-capital/
 ├── applications/
 │   ├── frontend/    # Next.js TypeScript frontend
 │   ├── backend/     # Express.js backend
